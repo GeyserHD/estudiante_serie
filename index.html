@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Series Favaritas</title>
+    <title>Series Favoritas</title>
 </head>
 <body>
+<div id="particles-background"></div>
 <div class="container">
     <div class="container">
         <!-- Loader principal -->
@@ -273,6 +274,53 @@
                 img.style.opacity = '1';
                 img.alt = 'Error al cargar imagen';
             };
+        });
+        // Partículas de fondo animadas
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles-background');
+            const particleCount = 50;
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Tamaño aleatorio
+                const sizes = ['small', 'medium', 'large'];
+                const size = sizes[Math.floor(Math.random() * sizes.length)];
+                particle.classList.add(size);
+                
+                // Posición horizontal aleatoria
+                particle.style.left = Math.random() * 100 + '%';
+                
+                // Duración de animación aleatoria
+                const duration = Math.random() * 20 + 10; // Entre 10 y 30 segundos
+                particle.style.animationDuration = duration + 's';
+                
+                // Retraso aleatorio
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remover partícula después de la animación
+                setTimeout(() => {
+                    if (particle.parentNode) {
+                        particle.parentNode.removeChild(particle);
+                    }
+                }, (duration + 5) * 1000);
+            }
+
+            // Crear partículas iniciales
+            for (let i = 0; i < particleCount; i++) {
+                setTimeout(createParticle, i * 200);
+            }
+
+            // Crear nuevas partículas continuamente
+            setInterval(createParticle, 1000);
+        }
+
+        // Inicializar partículas después de que se cargue la página
+        window.addEventListener('load', function() {
+            setTimeout(createParticles, 2000); // Empezar después del loader
         });
     </script>
 </body>
