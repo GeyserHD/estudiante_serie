@@ -78,3 +78,32 @@ h2 {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     border-color: rgba(255, 255, 255, 0.2);
 }
+/*BLOQUE IMAGEN SERIES*/
+.series-item h3 {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.series-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.series-item:hover img {
+    transform: scale(1.05);
+}
+
+.series-item p {
+    color: #cccccc;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: justify;
+}
