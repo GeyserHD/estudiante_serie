@@ -124,7 +124,86 @@ h2 {
 .series-item:hover::after {
     opacity: 1;
 }
+/* Sección de perfil cinematográfica */
+.profile-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    padding: 3rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
 
+.profile-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+    transition: left 0.8s ease;
+}
+
+.profile-section:hover::before {
+    left: 100%;
+}
+
+.profile-image img {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.profile-image img:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-info {
+    text-align: left;
+}
+
+.semester {
+    font-size: 1.2rem;
+    color: #b8b8b8;
+    margin-bottom: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+.about-btn {
+    background: rgba(255, 255, 255, 0.05);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(10px);
+}
+
+.about-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
