@@ -265,6 +265,60 @@ h2 {
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+.modal-body {
+    padding: 0 2rem 2rem 2rem;
+}
+
+.modal-info, .modal-hobbies {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.modal-info h3, .modal-hobbies h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.modal-info p {
+    color: #cccccc;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.modal-info strong {
+    color: #4ecdc4;
+}
+
+.hobbies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.8rem;
+}
+
+.hobby-tag {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.hobby-tag:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
     .container {
@@ -278,5 +332,24 @@ h2 {
     .series-list {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+        .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    
+    .profile-info {
+        text-align: center;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .hobbies-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     }
 }
