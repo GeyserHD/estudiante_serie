@@ -338,6 +338,38 @@
 
         // Inicializar parallax
         window.addEventListener('load', initParallax);
+        // Animaciones de entrada para series
+        function initSeriesAnimations() {
+            const seriesItems = document.querySelectorAll('.series-item');
+            
+            // Observer para detectar cuando las series entran al viewport
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            seriesItems.forEach((item, index) => {
+                // Agregar clases de animación alternadas
+                if (index % 2 === 0) {
+                    item.classList.add('slide-left');
+                } else {
+                    item.classList.add('slide-right');
+                }
+                
+                observer.observe(item);
+            });
+        }
+
+        // Inicializar animaciones después del loader
+        window.addEventListener('load', function() {
+            setTimeout(initSeriesAnimations, 2500);
+        });
     </script>
 </body>
 </html>
