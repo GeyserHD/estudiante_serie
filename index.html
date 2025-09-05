@@ -338,7 +338,91 @@
 
         // Inicializar parallax
         window.addEventListener('load', initParallax);
-        
+        // Cursor personalizado
+        function initCustomCursor() {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor';
+            document.body.appendChild(cursor);
+
+            const cursorTrail = document.createElement('div');
+            cursorTrail.className = 'cursor-trail';
+            document.body.appendChild(cursorTrail);
+
+            let mouseX = 0;
+            let mouseY = 0;
+            let cursorX = 0;
+            let cursorY = 0;
+
+            // Seguimiento del mouse
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            });
+
+            // Animación suave del cursor
+            function animateCursor() {
+                const diffX = mouseX - cursorX;
+                const diffY = mouseY - cursorY;
+                
+                cursorX += diffX * 0.1;
+                cursorY += diffY * 0.1;
+
+                cursor.style.left = cursorX + 'px';
+                cursor.style.top = cursorY + 'px';
+
+                cursorTrail.style.left = (cursorX - 4) + 'px';
+                cursorTrail.style.top = (cursorY - 4) + 'px';
+
+                requestAnimationFrame(animateCursor);
+            }
+            animateCursor();
+
+            // Estados del cursor
+            const interactiveElements = document.querySelectorAll('a, button, .series-item, .star, .about-btn');
+            
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    cursor.classList.add('hover');
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    cursor.classList.remove('hover');
+                });
+            });
+
+            // Efecto de click
+            document.addEventListener('mousedown', () => {
+                cursor.classList.add('click');
+            });
+
+            document.addEventListener('mouseup', () => {
+                cursor.classList.remove('click');
+            });
+
+            // Partículas del cursor
+            document.addEventListener('mousemove', (e) => {
+                if (Math.random() < 0.1) { // 10% de probabilidad
+                    createCursorParticle(e.clientX, e.clientY);
+                }
+            });
+
+            function createCursorParticle(x, y) {
+                const particle = document.createElement('div');
+                particle.className = 'cursor-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                document.body.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove();
+                }, 1000);
+            }
+        }
+
+        // Inicializar cursor personalizado
+        window.addEventListener('load', function() {
+            setTimeout(initCustomCursor, 3000);
+        });
     </script>
 </body>
 </html>
