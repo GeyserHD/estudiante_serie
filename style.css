@@ -6,76 +6,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-/* Cursor personalizado cinematográfico */
-* {
-    cursor: none;
-}
 
-.cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    mix-blend-mode: difference;
-    transition: transform 0.1s ease;
-}
-
-.cursor-trail {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 8px;
-    background: rgba(78, 205, 196, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    transition: all 0.3s ease;
-}
-
-/* Estados del cursor */
-.cursor.hover {
-    transform: scale(1.5);
-    background: rgba(255, 107, 107, 0.8);
-}
-
-.cursor.click {
-    transform: scale(0.8);
-    background: rgba(69, 183, 209, 1);
-}
-
-/* Cursor especial para elementos interactivos */
-a, button, .series-item, .star {
-    cursor: none;
-}
-
-/* Efecto de partículas del cursor */
-.cursor-particle {
-    position: fixed;
-    width: 4px;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9997;
-    animation: cursorParticleFade 1s ease-out forwards;
-}
-
-@keyframes cursorParticleFade {
-    0% {
-        opacity: 1;
-        transform: scale(1);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0);
-    }
-}
 body {
     font-family: 'Inter', sans-serif;
     background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 50%, #16213e 100%);
