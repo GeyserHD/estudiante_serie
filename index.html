@@ -322,6 +322,22 @@
         window.addEventListener('load', function() {
             setTimeout(createParticles, 2000); // Empezar después del loader
         });
+        // Efecto Parallax en la sección de perfil
+        function initParallax() {
+            const profileSection = document.querySelector('.profile-section');
+            
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                if (profileSection) {
+                    profileSection.style.transform = `translateY(${rate}px)`;
+                }
+            });
+        }
+
+        // Inicializar parallax
+        window.addEventListener('load', initParallax);
     </script>
 </body>
 </html>
