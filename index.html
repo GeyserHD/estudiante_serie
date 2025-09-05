@@ -111,5 +111,35 @@
                 <p>Serie de superhéroes oscura que muestra el lado corrupto de los superhéroes corporativos y quienes luchan contra ellos.</p>
             </div>
     </div>
+<script>
+        // Obtener elementos del modal
+        const modal = document.getElementById('aboutModal');
+        const btn = document.getElementById('aboutBtn');
+        const span = document.getElementsByClassName('close')[0];
+
+        // Abrir modal
+        btn.onclick = function() {
+            modal.style.display = 'block';
+        }
+
+        // Cerrar modal con la X
+        span.onclick = function() {
+            modal.style.display = 'none';
+        }
+
+        // Cerrar modal haciendo clic fuera de él
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Cerrar modal con tecla Escape
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
