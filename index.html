@@ -230,6 +230,50 @@
                 modal.style.display = 'none';
             }
         });
+        // Loader functionality
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('pageLoader');
+            
+            // Simular un tiempo mínimo de carga para mostrar la animación
+            setTimeout(function() {
+                loader.classList.add('hidden');
+                
+                // Remover el loader del DOM después de la transición
+                setTimeout(function() {
+                    loader.remove();
+                }, 500);
+            }, 1500); // Mostrar loader por 1.5 segundos mínimo
+        });
+
+        // Lazy loading para imágenes
+        const images = document.querySelectorAll('.series-item img');
+        
+        images.forEach(img => {
+            // Crear un div de loading para cada imagen
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'image-loading';
+            loadingDiv.innerHTML = '<div class="image-spinner"></div>';
+            
+            // Insertar loading antes de la imagen
+            img.parentNode.insertBefore(loadingDiv, img);
+            
+            // Ocultar imagen inicialmente
+            img.style.opacity = '0';
+            
+            // Cuando la imagen se carga
+            img.onload = function() {
+                loadingDiv.remove();
+                img.style.opacity = '1';
+                img.style.transition = 'opacity 0.5s ease';
+            };
+            
+            // Si hay error al cargar
+            img.onerror = function() {
+                loadingDiv.remove();
+                img.style.opacity = '1';
+                img.alt = 'Error al cargar imagen';
+            };
+        });
     </script>
 </body>
 </html>
