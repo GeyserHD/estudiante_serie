@@ -9,15 +9,37 @@
 <body>
 <div class="container">
         <div class="profile-section">
-            <h1>Geiser Guerrero</h1>
-            <div class="student-info">
-                <p class="semester">Estudiante - 4to Semestre Ing. en Sistemas</p>
-                <div class="hobbies">
-                    <h3>Mis Hobbies:</h3>
-                    <span class="hobby-tag">Ver Series - Peliculas</span>
-                    <span class="hobby-tag">Programación</span>
-                    <span class="hobby-tag">Gaming</span>
-                    <span class="hobby-tag">Escuchar Musica</span>
+            <div class="profile-image">
+                <img src="img/yoyo.jpg" alt="Geiser Guerrero">
+            </div>
+            <div class="profile-info">
+                <h1>Geiser Guerrero</h1>
+                <p class="semester">Estudiante - 4to Semestre</p>
+                <button id="aboutBtn" class="about-btn">Acerca de Mí</button>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div id="aboutModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Acerca de Mí</h2>
+                <div class="modal-body">
+                    <div class="modal-info">
+                        <h3>📚 Información Académica</h3>
+                        <p><strong>Nombre:</strong> Geiser Guerrero</p>
+                        <p><strong>Semestre:</strong> 4to Semestre</p>
+                        <p><strong>Carrera:</strong> Ingeniería de Sistemas</p>
+                    </div>
+                    <div class="modal-hobbies">
+                        <h3>🎯 Mis Hobbies</h3>
+                        <div class="hobbies-grid">
+                            <span class="hobby-tag">📺 Ver Series - Peliculas</span>
+                            <span class="hobby-tag">💻 Programación</span>
+                            <span class="hobby-tag">🎮 Gaming</span>
+                            <span class="hobby-tag">🎵 Música</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
